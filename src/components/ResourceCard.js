@@ -97,6 +97,20 @@ export default function ResourceCard({
     useUserLocalStorage,
   })
 
+  const { 
+    markdown: sourceMarkdown, 
+    items: sourceItems 
+  } = useContent({
+    verse,
+    chapter,
+    projectId,
+    listRef: 'master',
+    languageId,
+    resourceId,
+    owner,
+    server,
+  })
+
   const {
     tsvs,
     items,
@@ -142,6 +156,11 @@ export default function ResourceCard({
     useUserLocalStorage,
     resourceId: cardResourceId,
   })
+
+  let sourceItem = {};
+  if(sourceItems && typeof itemIndex == 'number'){
+    sourceItem = sourceItems[itemIndex];
+  }
 
   const sha = getSha({
     item, fetchResponse, cardResourceId,
@@ -264,6 +283,7 @@ export default function ResourceCard({
         id={`${id}_content`}
         item={item}
         items={items}
+        sourceItem={sourceItem}
         filters={filters}
         editable={editable}
         viewMode={viewMode}
