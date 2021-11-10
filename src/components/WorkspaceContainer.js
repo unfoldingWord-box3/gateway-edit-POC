@@ -22,6 +22,8 @@ import {
 } from 'single-scripture-rcl'
 import { DraggableCard, useResourceClickListener } from 'translation-helps-rcl'
 import ResourceCard from '@components/ResourceCard'
+import ResourceSourceCard from '@components/ResourceSourceCard'
+
 import {
   getLatestBibleRepo,
   getResourceBibles,
@@ -435,7 +437,7 @@ function WorkspaceContainer() {
             {...commonScriptureCardConfigs}
           />
 
-          <ResourceCard
+          <ResourceSourceCard
             title='translationNotes'
             id='resource_card_tn'
             {...commonResourceCardConfigs}
@@ -450,6 +452,7 @@ function WorkspaceContainer() {
             setSavedChanges={setSavedChanges}
             showSaveChangesPrompt={showSaveChangesPrompt}
           />
+
           <ResourceCard
             title='translationAcademy'
             id='resource_card_ta'
