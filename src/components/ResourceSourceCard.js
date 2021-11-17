@@ -16,6 +16,7 @@ import { getResourceMessage } from '@utils/resources'
 import { RESOURCE_HTTP_CONFIG, SERVER_MAX_WAIT_TIME_RETRY } from '@common/constants'
 import generateEditFilePath from '@utils/generateEditFilePath'
 import getSha from '@utils/getSha'
+import { Grid } from '@material-ui/core'
 
 export default function ResourceSourceCard({
   id,
@@ -99,15 +100,20 @@ export default function ResourceSourceCard({
 
   const { 
     markdown: sourceMarkdown, 
-    items: sourceItems 
+    items: sourceItems,
+    tsvs: tsvs_source,
+    resource: sourceResource,
+    fetchResponse: sourceFetchResponse,
+    resourceStatus: sourceResourceStatus,
+    reloadResource: sourceReloadResource,
   } = useContent({
     verse,
     chapter,
     projectId,
     listRef: 'master',
-    languageId,
-    resourceId,
-    owner,
+    languageId: 'en',
+    resourceId: 'tn',
+    owner: 'unfoldingWord',
     server,
   })
 
@@ -254,6 +260,11 @@ export default function ResourceSourceCard({
   const editableResources = ['tw', 'ta', 'tn', 'tq', 'twl']
   const editable = editableResources.includes(cardResourceId)
 
+
+
+  console.log('ssssssssssssssssssssssssssss',sourceItems);
+  console.log('tttttttttttttttttttttttttttt', items)
+
   return (
     <Card
       id={id}
@@ -279,11 +290,17 @@ export default function ResourceSourceCard({
       hideMarkdownToggle={hideMarkdownToggle}
       showSaveChangesPrompt={showSaveChangesPrompt}
     >
+      <Grid container spacing={2}>
+        <Grid item xs={3} md={3} style={{fontWeight: 'bolder', textAlign: 'center'}}>Sub-head</Grid>
+        <Grid item xs={4} md={4} style={{fontWeight: 'bolder', textAlign: 'center', paddingLeft:'10px'}}>Source</Grid>
+        <Grid item xs={5} md={5} style={{fontWeight: 'bolder', textAlign: 'center'}}>Target</Grid>
+      </Grid>
+
     { item &&
       <TsvTranslate
         id={`${id}_content`}
         item={item}
-        items={items}
+        // items={items}
         sourceItem={sourceItem}
         filters={filters}
         editable={editable}
