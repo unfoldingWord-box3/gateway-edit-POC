@@ -127,13 +127,23 @@ yarn dev
 
 
 <!-- USAGE EXAMPLES -->
-## Usage/Integration
+## Usage
+**Create an account**
+- Create an account(signin/signup)
+- Select organisation and language
+- Click SAVE AND CONTINUE button(You will get a page where you can refer and edit the content in translation Notes card).
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+**Change Books/chapter**
+- On header use left and right arrows to navigate through books and chapters
 
+**Acount setting**
+- Here you can change or switch oraganisation and language
 
-[WIP]() 
+**Reset layout**
+- Click on Reset Layout in the drawer to reset the card layouts
 
+**logout**
+- Click on logout to exit the application
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -174,7 +184,7 @@ If you would like to fork the repo and create a pull request.
 <!-- LICENSE -->
 ## License
 
-Distributed under the GPL2.0 License. See `LICENSE.txt` for more information.
+Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
